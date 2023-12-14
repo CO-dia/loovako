@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth"
-import { authConfig } from "../../../pages/api/auth/[...nextauth]"
+import { authConfig } from "@/pages/api/auth/[...nextauth]"
 
 /**
  * Get the auth session
