@@ -1,7 +1,7 @@
-import { LoginButton } from '@/components/auth/LoginButton'
-import { getAuth } from '@/components/services/auth'
+import HomeScreen from '@/screens/HomeScreen';
+import { getAuth } from '@/services/auth'
 
-export default async function Home() {
+export default async function App() {
   const session = await getAuth();
 
   /** 
@@ -12,10 +12,8 @@ export default async function Home() {
   }*/
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <LoginButton />
-      </div>
+    <main>
+        <HomeScreen />
     </main>
   )
 }
