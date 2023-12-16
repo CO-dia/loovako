@@ -1,16 +1,8 @@
 import React from 'react';
-import { getAuth } from '@/services/auth';
 import { LoginButton } from '../components/auth/LoginButton';
+import CategoryCard from '@/components/home/CategoryCard';
 
 export default async function HomeScreen() {
-	const session = await getAuth();
-
-	/** 
-  if (session) {
-    return (
-      <pre>{JSON.stringify(session, null, 2)}</pre>
-    )
-  }*/
 
 	return (
 		<>
@@ -18,7 +10,8 @@ export default async function HomeScreen() {
 				<LoginButton />
 			</div>
 			<div>
-        
+				<CategoryCard 
+					game='pendu'/>
 			</div>
 		</>
 	);
