@@ -9,9 +9,13 @@ export default async function HomeScreen() {
 			<div className='flex justify-end'>
 				<LoginButton />
 			</div>
-			<div>
-				<CategoryCard 
+			<div className='flex justify-center'>
+				<CategoryCard
 					game='pendu'/>
+				<CategoryCard 
+					game='quiz'/>
+				<CategoryCard
+					game='memory'/>
 			</div>
 		</>
 	);

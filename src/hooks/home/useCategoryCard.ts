@@ -23,12 +23,12 @@ export function useCategoryCard() {
 		quiz: {
 			name: 'Le quiz',
 			description: 'Répondez aux questions pour gagner des points',
-			image_src: ''
+			image_src: '/images/quiz_test.jpg'
 		},
 		memory: {
 			name: 'Memory',
 			description: 'Retrouvez les paires de cartes.',
-			image_src: ''
+			image_src: '/images/memory_test.jpg'
 		},
 	};
 

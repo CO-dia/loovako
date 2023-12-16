@@ -14,7 +14,7 @@ const CategoryCard = ({game}: CategoryCardProps) => {
 	return (
 		<div className='ml-20 flex flex-col bg-gray-300 rounded-2xl w-40 shadow_perso'>
 			<div>
-				<Image src={category.image_src} alt='Pendu' width={200} height={100} className='rounded-t-2xl'/>
+				<Image src={category.image_src} alt='Pendu' width={200} height={100} className='rounded-t-2xl object-cover h-32'/>
 			</div>
 			<div className='flex flex-col items-center py-5 px-2 h-52 justify-around'>
 				<p className='text-sm text-center'>{category.name}</p>
