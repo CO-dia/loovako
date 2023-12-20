@@ -2,7 +2,7 @@ interface Category {
     name: string;
     description: string;
     image_src: string;
-  }
+}
   
 type Categories = {
     [key: string]: Category;

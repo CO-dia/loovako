@@ -11,18 +11,18 @@ datasource db {
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -53,4 +53,58 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Word {
+  id        Int         @id @default(autoincrement())
+  word      String      @unique
+  language  String
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  deletedAt DateTime?
+  WordTheme WordTheme[]
+}
+
+model Theme {
+  id        Int         @id @default(autoincrement())
+  name      String      @unique
+  icon_path String      @unique
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  deletedAt DateTime?
+  WordTheme WordTheme[]
+  Quiz      Quiz[]
+}
+
+model WordTheme {
+  id        Int       @id @default(autoincrement())
+  wordId    Int
+  themeId   Int
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  word  Word  @relation(fields: [wordId], references: [id])
+  theme Theme @relation(fields: [themeId], references: [id])
+}
+
+model Quiz {
+  id        Int       @id @default(autoincrement())
+  themeId   Int
+  question  String    @unique
+  answer    String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  theme Theme @relation(fields: [themeId], references: [id])
+}
+
+model Memory {
+  id        Int       @id @default(autoincrement())
+  word      String    @unique
+  imagePath String    @unique
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
 }
